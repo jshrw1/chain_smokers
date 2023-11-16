@@ -43,8 +43,7 @@ plt.legend(loc=4)
 plt.show()
 
 # Submission:
-test_path = r'~/PycharmProjects/chain_smokers/data/test.csv'
-test = pd.read_csv(test_path, header=0)
+
 
 #  Eyesight & Hearing
 test['eyes'] = (test['eyesight(left)'] + test['eyesight(right)']) / 2
@@ -90,8 +89,4 @@ features.remove('hearing')
 features.remove('bld_pres_bin')
 features.remove('wst_hgt')
 features.remove('eyes')
-X_test = test[features]
-test['smoking'] = logreg.predict_proba(X_test)[::, 1]
 
-submit = test[['id', 'smoking']]
-submit.to_csv('submission.csv', index=False)
